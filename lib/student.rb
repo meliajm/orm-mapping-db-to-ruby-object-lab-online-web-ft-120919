@@ -35,10 +35,9 @@ class Student
     SQL
     # binding.pry
     
-    result = []
-    result << DB[:conn].execute(sql).map do |row|
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
-    end.first
+    end
   end
 
   def self.students_below_12th_grade
